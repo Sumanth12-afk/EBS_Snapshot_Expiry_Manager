@@ -1,0 +1,41 @@
+# ============================================================================
+# Example Terraform Variables Configuration
+# Copy this file to terraform.tfvars and customize for your environment
+# ============================================================================
+
+# AWS Configuration
+aws_region  = "ap-south-1"
+environment = "prod"
+
+# Snapshot Retention Policy
+retention_days = 90
+
+# Automation Settings
+enable_auto_delete     = false  # Set to true to enable automatic deletion
+enable_glacier_archive = false  # Set to true to enable Glacier archival
+enable_glacier_vault   = false  # Set to true to create Glacier vault
+
+# Multi-Region Scanning
+scan_regions = "ap-south-1,us-east-1"
+
+# Gmail Configuration
+gmail_user                  = "alerts@yourcompany.com"
+alert_receiver              = "finops@yourcompany.com"
+gmail_password_secret_name  = "ebs/gmail-app-password"
+
+# Lambda Configuration
+lambda_timeout = 900   # 15 minutes
+lambda_memory  = 512   # MB
+
+# Scheduling (Daily at 6 AM UTC)
+schedule_expression = "cron(0 6 * * ? *)"
+
+# Cost Estimation
+snapshot_cost_per_gb = 0.05  # USD per GB per month
+
+# DynamoDB Configuration
+dynamodb_billing_mode = "PAY_PER_REQUEST"
+
+# Glacier Configuration
+glacier_vault_name = "ebs-snapshot-archive"
+
